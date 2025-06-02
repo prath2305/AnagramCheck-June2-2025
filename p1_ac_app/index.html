@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Anagram Checker App By Prathamesh</title>
+	<style>
+		*{font-size: 50px; font-family: Calibri;
+		text-align:center; margin:auto;}
+		body {background-color:lightyellow;}
+		
+	</style>	
+</head>
+
+	<body>
+	<h1>Anagram Checker App</h1>
+	<br/>
+	<form onsubmit="check()">
+		<input type="text" id="str1" placeholder="enter First string" />
+		<br/><br/>
+		<input type="text" id="str2" placeholder="enter Second string" />
+		<br/><br/>
+		<input type="submit" value="Check">
+	</form>
+	<h2 id="msg"/>
+
+	<script>
+		function check()
+	{
+		event.preventDefault();
+		let str1= document.getElementById("str1");
+		let str2= document.getElementById("str2");
+		let msg= document.getElementById("msg"); 
+
+		if(str1.value.trim()=== "")
+		{
+			alert("Please enter first String");
+			msg.innerHTML="";
+			str1.value="";
+			str1.focus();
+			return;
+		}
+		
+		if(str2.value.trim()=== "")
+		{
+			alert("Please enter second String");
+			msg.innerHTML="";
+			str2.value="";
+			str2.focus();
+			return;
+		}
+		
+		let org1 =str1.value.split("").sort().join("");
+		let org2 =str2.value.split("").sort().join("");
+		
+		if(org1===org2)
+			msg.innerHTML="Yes they are anagrams";	
+		else
+			msg.innerHTML="No they are not anagrams";
+		
+}
+	
+</script>
+	</body>
+</html>
